@@ -154,6 +154,11 @@ function verify_cert {
 
 root_user_check
 
+if [ ! -f "$CNF_FILE" ]; then
+	echo "openssl configuration file \"openssl.cnf\" not found in the current location."
+	exit 2
+fi
+
 case "$1" in
 	"init-ca" )
 		init_ca ;;
